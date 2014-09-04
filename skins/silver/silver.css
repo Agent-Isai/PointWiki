@@ -1,0 +1,148 @@
+ul.navbuttons{
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li.navbuttons{
+	display: inline;
+	margin-left: 20px;
+}
+a.navbuttons:link{
+	color: #2A5DB0;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.navbuttons:visited{
+	color: #2A5DB0;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.navbuttons:hover{
+	text-decoration: underline;
+	color: #2f6fd6;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.navbuttons:active{
+	text-decoration: underline;
+	color: #2f6fd6;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.page{
+	position:absolute;
+	right:0px;
+	margin-right:1%;
+	width:85%;
+	box-sizing: border-box;
+}
+.pagetitle{
+	font-family: "Times New Roman", Times, serif;
+	font-size:40px;
+}
+.sitename{
+	text-align:right;
+	margin-right:30px;
+	font-size:50px;
+}
+a.sitename:link{
+	color: black;
+	text-decoration: none;
+	font-family: "Times New Roman", Times, serif;
+}
+a.sitename:visited{
+	color: black;
+	text-decoration: none;
+	font-family: "Times New Roman", Times, serif;
+}
+a.sitename:hover{
+	color: black;
+	text-decoration: underline;
+	font-family: "Times New Roman", Times, serif;
+}
+a.sitename:active{
+	color: black;
+	text-decoration: underline;
+	font-family: "Times New Roman", Times, serif;
+}
+.content{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:16px;
+	min-height:100%;
+}
+a.content:link{
+	color: #2A5DB0;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.content:visited{
+	color: #2A5DB0;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.content:hover{
+	text-decoration: underline;
+	color: #2f6fd6;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.content:active{
+	text-decoration: underline;
+	color: #2f6fd6;
+	font-family: Arial, Helvetica, sans-serif;
+}
+img.poweredby{
+	position:absolute;
+	right:0px;
+	margin-right:15px;
+}
+img.license{
+	position:absolute;
+	right:0px;
+	margin-right:118px;
+}
+.sidebar{
+	box-sizing: border-box;
+}
+ul.sidebar{
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.subbox{
+	list-style-type: none;
+	background:#eae8e8;
+	border:2px solid #d8d8d8;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	margin-left:10px;
+	width:8%;
+}
+img.sidebar{
+	user-drag: none; 
+	-moz-user-select: none; 
+	-webkit-user-drag: none;
+	width:13%;
+}
+a.sidebar:link{
+	color: #2A5DB0;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+a.sidebar:visited{
+	color: #2A5DB0;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+a.sidebar:hover{
+	text-decoration: underline;
+	color: #2f6fd6;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+a.sidebar:active{
+	text-decoration: underline;
+	color: #2f6fd6;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
