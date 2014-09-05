@@ -31,7 +31,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 	  fwrite($filehist, 'echo "</tr>";'. PHP_EOL);
 	  fwrite($filehist, 'echo "</table>";'. PHP_EOL);
 	  fclose($filehist);
-	  $cache_new = "<?php\necho '" . $_SERVER["REMOTE_ADDR"] . " uploaded <a href=\'".$ID."index.php?title=File:".$_FILES["file"]["name"]."\'>".$_FILES["file"]["name"]."</a> @ ". date('H:i, F jS, Y') ."<br>';\n?>"; // this gets prepended
+	  $cache_new = "<?php\necho '" . $_SERVER["REMOTE_ADDR"] . " uploaded <a href=\'".$IURL."index.php?title=File:".$_FILES["file"]["name"]."\'>".$_FILES["file"]["name"]."</a> @ ". date('H:i, F jS, Y') ."<br>';\n?>"; // this gets prepended
 	  $rcfile = dirname(getcwd())."/history/RecentChanges.hist"; // the file to which $cache_new gets prepended
 
 	  $handle = fopen($rcfile, "r+");
