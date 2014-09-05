@@ -2,3 +2,5 @@ WikiSettings.php
 *.hist
 !RecentChanges.hist
 *.cont
+upload/*
+!upload/__PLACEHOLDER__
