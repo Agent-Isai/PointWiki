@@ -49,16 +49,16 @@ if (version_compare(phpversion(), '5.2.0', '<')) {
 			require $ID.'include/invalidwiki.php';
 		}
 	} elseif (0 === strpos($title, 'File:')) {
-		if (! $title == "File:") {
-			if ($action == "edit") {
-				require $ID.'include/'.$action . '_' . $file;
-			} elseif ($action == "history") {
-				require $ID.'include/'.$action . '_' . $file;
+		if ($action == "edit") {
+			require $ID.'include/'.$action . '_' . $file;
+		} elseif ($action == "history") {
+			require $ID.'include/'.$action . '_' . $file;
+		} else {
+			if ($title == "File:"){
+				require $ID.'include/invalidwiki.php';
 			} else {
 				require $ID.'include/filepage.php';
 			}
-		} else {
-			require $ID.'include/invalidwiki.php';
 		}
 	} else {
 		require $ID.'include/'.$action . '_' . $file;
