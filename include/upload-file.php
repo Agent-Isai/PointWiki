@@ -15,10 +15,10 @@ if ((($_FILES["file"]["type"] == "image/gif")
   if ($_FILES["file"]["error"] > 0) {
     echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
   } else {
-    if (file_exists(dirname(getcwd())."/upload/" . $_FILES["file"]["name"])) {
+    if (file_exists(dirname($ID)."/upload/" . $_FILES["file"]["name"])) {
       header('Location: '.$IURL.'index.php?title=Wiki:Upload&err=exist');
     } else {
-      move_uploaded_file($_FILES["file"]["tmp_name"], $ID."upload/" . $_FILES["file"]["name"]);
+      move_uploaded_file($_FILES["file"]["tmp_name"], dirname($ID)."/upload/" . $_FILES["file"]["name"]);
 	  $filehist = fopen(dirname(getcwd()).'/history/file/'. $_FILES["file"]["name"] .'.hist', 'w');
 	  fwrite($filehist, '<?php'. PHP_EOL);
 	  fclose($filehist);
@@ -26,7 +26,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 	  fwrite($filehist, 'echo "<table>";'. PHP_EOL);
 	  fwrite($filehist, 'echo "<tr>";'. PHP_EOL);
 	  fwrite($filehist, 'echo "<td style=\"background:#DDDDDD;border:2px solid #bfbfbf;\">'.date('H:i, F jS, Y').'</td>";'. PHP_EOL);
-	  fwrite($filehist, 'echo "<td style=\"background:#DDDDDD;border:2px solid #bfbfbf;\"><img src=\"'.$ID.'upload/'. $_FILES["file"]["name"].'\" style=\"max-width:150px\"></td>";'. PHP_EOL);
+	  fwrite($filehist, 'echo "<td style=\"background:#DDDDDD;border:2px solid #bfbfbf;\"><img src=\"'.$IURL.'upload/'. $_FILES["file"]["name"].'\" style=\"max-width:150px\"></td>";'. PHP_EOL);
 	  fwrite($filehist, 'echo "<td style=\"background:#DDDDDD;border:2px solid #bfbfbf;\">'. $_SERVER["REMOTE_ADDR"] .'</td>";'. PHP_EOL);
 	  fwrite($filehist, 'echo "</tr>";'. PHP_EOL);
 	  fwrite($filehist, 'echo "</table>";'. PHP_EOL);
