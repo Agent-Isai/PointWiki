@@ -1,1 +1,4 @@
 WikiSettings.php
+*.hist
+!RecentChanges.hist
+*.cont
