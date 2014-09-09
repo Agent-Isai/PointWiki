@@ -1,6 +1,4 @@
 PointWiki
 =========
 
-PointWiki is a simple Wiki software, written in PHP, for use on websites.
-
-Requires PHP 5.2 or newer.
+To get information about PointWiki, please see our website/wiki (running also on PointWiki) at http://point.wiki.gd.
