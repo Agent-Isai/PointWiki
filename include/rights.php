@@ -1,6 +1,5 @@
 <?php
 $admin = array(
-	"PointWiki script" => "Snowstormer",
 );
 $mod = array(
 );
