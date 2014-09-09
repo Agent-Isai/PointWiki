@@ -7,4 +7,5 @@ if ($DIR[1] == "skins" || $DIR[1] == "include" || $DIR[1] == "setup") {
 	$IURL = "http://".$_SERVER['HTTP_HOST']."/".$DIR[1]."/";
 }
 $ID = getcwd()."/";
+$version = "α1.1";
 ?>

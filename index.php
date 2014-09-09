@@ -8,7 +8,7 @@ if (version_compare(phpversion(), '5.2.0', '<')) {
 	echo '</center>';
 } else {
 	if (file_exists($ID.'WikiSettings.php')) {
-	$allowed = array('history', 'view', 'edit', 'upload');
+	$allowed = array('history', 'view', 'edit', 'upload', 'delete', 'move', 'protect');
 	$file = basename(__FILE__);
 
 	if ( ! isset($_GET['action'])) {
@@ -45,6 +45,12 @@ if (version_compare(phpversion(), '5.2.0', '<')) {
 			require $ID.'include/latestchanges.php';
 		} elseif ($title == "Wiki:IssueTracker") {
 			require $ID.'include/issuetracker.php';
+		} elseif ($title == "Wiki:Register") {
+			require $ID.'include/register.php';
+		} elseif ($title == "Wiki:Login") {
+			require $ID.'include/login.php';
+		} elseif ($title == "Wiki:Logout") {
+			require $ID.'include/logout.php';
 		} else {
 			require $ID.'include/invalidwiki.php';
 		}

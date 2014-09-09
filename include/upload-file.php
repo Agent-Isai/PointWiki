@@ -1,4 +1,5 @@
 <?php
+session_start();
 require getcwd().'/getsite.php';
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 $temp = explode(".", $_FILES["file"]["name"]);
@@ -19,19 +20,24 @@ if ((($_FILES["file"]["type"] == "image/gif")
       header('Location: '.$IURL.'index.php?title=Wiki:Upload&err=exist');
     } else {
       move_uploaded_file($_FILES["file"]["tmp_name"], dirname($ID)."/upload/" . $_FILES["file"]["name"]);
-	  $filehist = fopen(dirname(getcwd()).'/history/file/'. $_FILES["file"]["name"] .'.hist', 'w');
-	  fwrite($filehist, '<?php'. PHP_EOL);
-	  fclose($filehist);
 	  $filehist = fopen(dirname(getcwd()).'/history/file/'. $_FILES["file"]["name"] .'.hist', 'a');
-	  fwrite($filehist, 'echo "<table>";'. PHP_EOL);
-	  fwrite($filehist, 'echo "<tr>";'. PHP_EOL);
-	  fwrite($filehist, 'echo "<td style=\"background:#DDDDDD;border:2px solid #bfbfbf;\">'.date('H:i, F jS, Y').'</td>";'. PHP_EOL);
-	  fwrite($filehist, 'echo "<td style=\"background:#DDDDDD;border:2px solid #bfbfbf;\"><img src=\"'.$IURL.'upload/'. $_FILES["file"]["name"].'\" style=\"max-width:150px\"></td>";'. PHP_EOL);
-	  fwrite($filehist, 'echo "<td style=\"background:#DDDDDD;border:2px solid #bfbfbf;\">'. $_SERVER["REMOTE_ADDR"] .'</td>";'. PHP_EOL);
-	  fwrite($filehist, 'echo "</tr>";'. PHP_EOL);
-	  fwrite($filehist, 'echo "</table>";'. PHP_EOL);
+	  fwrite($filehist, '<table>');
+	  fwrite($filehist, '<tr>');
+	  fwrite($filehist, '<td style="background:#DDDDDD;border:2px solid #bfbfbf;">'.date('H:i, F jS, Y').'</td>');
+	  fwrite($filehist, '<td style="background:#DDDDDD;border:2px solid #bfbfbf;"><img src="'.$IURL.'upload/'. $_FILES["file"]["name"].'" style="max-width:150px"></td>');
+	  if (isset($_SESSION['user'])) {
+		fwrite($filehist, '<td style="background:#DDDDDD;border:2px solid #bfbfbf;">((User:'.addslashes($_SESSION['user']).'|'.addslashes($_SESSION['user']).'))</td>');
+	  } else {
+		fwrite($filehist, '<td style="background:#DDDDDD;border:2px solid #bfbfbf;">'. $_SERVER["REMOTE_ADDR"] .'</td>');
+	  }
+	  fwrite($filehist, '</tr>');
+	  fwrite($filehist, '</table>');
 	  fclose($filehist);
-	  $cache_new = "<?php\necho '" . $_SERVER["REMOTE_ADDR"] . " uploaded <a href=\'".$IURL."index.php?title=File:".$_FILES["file"]["name"]."\'>".$_FILES["file"]["name"]."</a> @ ". date('H:i, F jS, Y') ."<br>';\n?>"; // this gets prepended
+	  if (isset($_SESSION['user'])) {
+		$cache_new = "<ul style=\"margin-top: 0; margin-bottom:0; padding-top: 0;padding-bottom: 0\"><li>((User:".addslashes($_SESSION['user'])."|".addslashes($_SESSION['user']).")) uploaded <a href=\"index.php?title=File:".$_FILES["file"]["name"]."\">".$_FILES["file"]["name"]."</a> @ ". date('H:i, F jS, Y') ."</li></ul>"; // this gets prepended
+	  } else {
+		$cache_new = "<ul style=\"margin-top: 0; margin-bottom:0; padding-top: 0;padding-bottom: 0\"><li>" . $_SERVER["REMOTE_ADDR"] . " uploaded <a href=\"index.php?title=File:".$_FILES["file"]["name"]."\">".$_FILES["file"]["name"]."</a> @ ". date('H:i, F jS, Y') ."</li></ul>"; // this gets prepended
+	  }
 	  $rcfile = dirname(getcwd())."/history/RecentChanges.hist"; // the file to which $cache_new gets prepended
 
 	  $handle = fopen($rcfile, "r+");
