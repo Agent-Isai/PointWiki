@@ -3,4 +3,4 @@ WikiSettings.php
 !RecentChanges.hist
 *.cont
 upload/*
-!upload/__PLACEHOLDER__
+!upload/index.php
