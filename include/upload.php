@@ -9,8 +9,8 @@ $err = $_GET['err'];
 <hr>
 <div class="content">
 <p>Using files:<br>
-To use a file, type &lt;img src="/wiki/upload/(yourfile)"&gt; on a page to make it show up.<br>
-You can change the file's width/height by doing &lt;img src="/wiki/upload/(yourfile)" width="(width)" height="(height)"&gt;.<br>
+To use a file, type &lt;img src="upload/(yourfile)"&gt; on a page to make it show up.<br>
+You can change the file's width/height by doing &lt;img src="/upload/(yourfile)" width="(width)" height="(height)"&gt;.<br>
 Width and height can be pixels (e.g. 42px) or percentages (e.g. 50%).</p>
 <hr>
 <?php
