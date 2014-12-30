@@ -1,4 +1,4 @@
 PointWiki
 =========
 
-To get information about PointWiki, please see our website/wiki (running also on PointWiki) at http://point.wiki.gd.
+Development for this project has stopped, you are welcome to fork and develop it further - however, be warned that the code is not very clean.
